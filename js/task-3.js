@@ -1,17 +1,28 @@
-function filterArray(numbers, value) {
-  const filtered = []; 
+const profile = {
+  username: "Jacob",
+  playTime: 300,
 
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] > value) {
-      filtered.push(numbers[i]); 
-    }
-  }
+  // Метод для зміни імені користувача
+  changeUsername(newName) {
+    this.username = newName;
+  },
 
-  return filtered;
-}
+  // Метод для оновлення кількості годин
+  updatePlayTime(hours) {
+    this.playTime += hours;
+  },
 
-console.log(filterArray([1, 2, 3, 4, 5], 3)); 
-console.log(filterArray([1, 2, 3, 4, 5], 4)); 
-console.log(filterArray([1, 2, 3, 4, 5], 5)); 
-console.log(filterArray([12, 24, 8, 41, 76], 38));
-console.log(filterArray([12, 24, 8, 41, 76], 20)); 
+  // Метод для отримання інформації
+  getInfo() {
+    return `${this.username} has ${this.playTime} active hours!`;
+  },
+};
+
+
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
